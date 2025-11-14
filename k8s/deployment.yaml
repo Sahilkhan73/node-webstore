@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webstore
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webstore
+  template:
+    metadata:
+      labels:
+        app: webstore
+    spec:
+      containers:
+      - name: webstore
+        image: <DOCKERHUB_USERNAME>/node-webstore:latest
+        ports:
+        - containerPort: 3000
